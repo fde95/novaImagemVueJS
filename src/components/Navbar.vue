@@ -34,10 +34,10 @@ import { RouterLink, RouterView } from "vue-router";
       </nav>
       <ul class="navbar__route">
         <li>
-          <button class="btn btn__secundary">(11) 1234-5678</button>
+          <button class="btn btn--secundary">(11) 1234-5678</button>
         </li>
         <li>
-          <button class="btn btn__primary">WhatsApp</button>
+          <button class="btn btn--primary">WhatsApp</button>
         </li>
       </ul>
     </div>
@@ -45,7 +45,7 @@ import { RouterLink, RouterView } from "vue-router";
   <RouterView />
 </template>
 
-<style scoped>
+<style scoped lang="scss">
 header {
   position: sticky;
   top: 0;
@@ -53,46 +53,56 @@ header {
   background-color: rgb(255, 255, 255);
   border-bottom: 1px solid #e7eaef;
   box-shadow: 1px 5px 10px rgba(0, 0, 0, 0.114);
+
+  .navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    &__logo {
+      max-width: 14rem;
+      width: 100%;
+    }
+
+    &__route {
+      display: flex;
+      align-items: center;
+
+      &__link {
+        margin: 0 0.5rem;
+        font-weight: 600;
+        color: var(--text-muted);
+        font-size: var(--text-size);
+        transition: .3s ease-in-out;
+
+        &:is(:hover, :focus, :active) {
+          color: var(--text-secundary);
+        }
+      }
+    }
+  }
 }
-.navbar {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-.navbar__logo {
-  max-width: 14rem;
-  width: 100%;
-}
-.navbar__route {
-  display: flex;
-  align-items: center;
-}
-.navbar__route__link {
-  margin: 0 0.5rem;
-  font-weight: 600;
-  color: var(--text-muted);
-  font-size: var(--text-size);
-  transition: .3s ease-in-out;
-}
-.navbar__route__link:is(:hover, :focus, :active) {
-  color: var(--text-secundary);
-}
+
 @media (max-width: 1000px) {
   .navbar {
     display: block;
     text-align: center;
+
+    &__logo {
+      max-width: 10rem;
+      width: 100%;
+      padding-top: 1rem;
+    }
+
+    &__route {
+      margin-top: 1rem;
+      justify-content: center;
+    }
   }
-  .navbar__logo {
-    max-width: 10rem;
-    width: 100%;
-    padding-top: 1rem;
-  }
-  .navbar__route {
-    margin-top: 1rem;
-    justify-content: center;
-  }
+
   .btn {
     display: none;
   }
 }
+
 </style>

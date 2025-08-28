@@ -116,70 +116,89 @@ const anoAtual = dataAtual.getFullYear();
   <WhatsAppButton/>
 </template>
 
-<style scoped>
+<style scoped lang="scss">
 footer {
   background-color: var(--bg-secundary);
   padding: 2rem 1rem;
-}
-.footer {
-  display: grid;
-  gap: 1.5rem;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
-  color: var(--text-terciary);
-}
-.footer__column__logo {
-  max-width: 16rem;
-  margin-bottom: 0.5rem;
-  background-image: var(--gradient-primary);
-  padding: .5rem;
-}
-.footer__column__title {
-  font-size: 18px;
-  margin-bottom: 0.5rem;
-}
-.footer__column__item {
-  margin-bottom: 0.5rem;
-}
-.footer__column__text,
-.footer__column__item__link,
-.copyright__column__text {
-  font-size: 14px;
-  color: var(--text-muted-secundary);
-  transition: 0.3s ease-in-out;
-}
-.footer__column__item__link:hover {
-  color: white;
-}
-hr {
-  max-width: 1200px;
-  margin: 0 auto;
-  border: none;
-  border-bottom: 1px solid var(--text-muted);
-  margin-top: 1rem;
-  opacity: 0.3;
-}
-.copyright {
-  display: flex;
-  justify-content: space-between;
-  margin-top: 1rem;
-}
-@media (min-width: 843px) and (max-width: 1200px) {
-  .footer__column__logo {
-    max-width: 11rem;
+
+  .footer {
+    display: grid;
+    gap: 1.5rem;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    color: var(--text-terciary);
+
+    &__column {
+      &__logo {
+        max-width: 16rem;
+        margin-bottom: 0.5rem;
+        background-image: var(--gradient-primary);
+        padding: .5rem;
+      }
+
+      &__title {
+        font-size: 18px;
+        margin-bottom: 0.5rem;
+      }
+
+      &__item {
+        margin-bottom: 0.5rem;
+
+        &__link {
+          font-size: 14px;
+          color: var(--text-muted-secundary);
+          transition: 0.3s ease-in-out;
+
+          &:hover { color: white; }
+        }
+      }
+
+      &__text {
+        font-size: 14px;
+        color: var(--text-muted-secundary);
+        transition: 0.3s ease-in-out;
+      }
+    }
+  }
+
+  hr {
+    max-width: 1200px;
+    margin: 0 auto;
+    border: none;
+    border-bottom: 1px solid var(--text-muted);
+    margin-top: 1rem;
+    opacity: 0.3;
+  }
+
+  .copyright {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 1rem;
+
+    &__column {
+      &__text {
+        font-size: 14px;
+        color: var(--text-muted-secundary);
+        transition: 0.3s ease-in-out;
+      }
+    }
   }
 }
 
+/* Media queries */
+@media (min-width: 843px) and (max-width: 1200px) {
+  footer .footer__column__logo { max-width: 11rem; }
+}
+
 @media (max-width: 842px) {
-  .footer,
-  .copyright {
-    display: block;
-    text-align: center;
-  }
-  .footer__column__title {
-    margin-top: 1.5rem;
-  }
-  .copyright__column__text {
-    margin-bottom: 0.5rem;
+  footer {
+    .footer,
+    .copyright {
+      display: block;
+      text-align: center;
+    }
+
+    .footer__column__title { margin-top: 1.5rem; }
+    .copyright__column__text { margin-bottom: 0.5rem; }
   }
 }
 </style>
