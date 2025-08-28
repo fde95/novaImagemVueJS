@@ -14,6 +14,8 @@
   --gradient-subtle: linear-gradient(180deg, hsl(0 0% 100%), hsl(213 20% 98%));
   --text-size: 14px;
   --margin-md: 1.5rem;
+  --radius: 0.75rem;
+  --shadow-soft: 0 4px 20px -2px hsl(213 94% 18% / 0.08);
 }
 
 * {
@@ -27,6 +29,7 @@
 
 body {
   background-color: var(--bg);
+  color: var(--text-primary);
 }
 
 .container {
@@ -34,12 +37,19 @@ body {
   max-width: 1400px;
   width: 100%;
   margin: 0 auto;
+
+  &--lg {
+    padding: 5rem 2.5rem;
+    max-width: 1400px;
+    width: 100%;
+    margin: 0 auto;
+  }
 }
 
 .btn {
   padding: 0.6rem 0.75rem;
   margin-right: 1rem;
-  border-radius: 0.5rem;
+  border-radius: var(--radius);
   border: none;
   cursor: pointer;
   font-size: var(--text-size);
@@ -53,23 +63,47 @@ body {
   &--secundary {
     background-color: white;
     color: var(--text-primary);
-    border: 1px solid #e7eaef;
+    border: 1px solid var(--text-terciary);
   }
+}
+
+.section--title {
+  font-size: 2rem;
 }
 
 .grid {
   display: grid;
-  grid-auto-flow: column;
-  grid-auto-columns: max-content;
+  // grid-auto-flow: column;
+  // grid-auto-columns: max-content;
   gap: 1rem;
   justify-content: start;
   align-items: center;
 
-  &-2 {
+  &--2 {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
-  @media (max-width: 64em) {
+  &--4 {
+    grid-template-columns: 1fr;
+
+    @media (min-width: 48rem) and (max-width: 64rem) {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+    @media (min-width: 64rem) {
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+    }
+  }
+
+  @media (max-width: 48em) {
     display: block;
+  }
+}
+
+.card {
+  padding: 1.5rem;
+  border-radius: var(--radius);
+  margin-bottom: var(--margin-md);
+  @media (min-width: 64px) {
+    margin-bottom: 0;
   }
 }
