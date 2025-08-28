@@ -1,71 +1,99 @@
-# Nova Imagem - Novo Site em VueJS
+# Nova Imagem – Site em Vue 3 + Vite
 
-Este projeto tem como objetivo atualizar o site da **Nova Imagem**, que atualmente utiliza um CMS, para uma versão moderna desenvolvida em **VueJS**.  
-O foco inicial é criar uma base organizada do projeto, com estrutura de páginas, componentes reutilizáveis e módulos essenciais.
-
----
-
-## 🚀 Tecnologias Utilizadas
-- [VueJS 3](https://vuejs.org/)
-- [Vite](https://vitejs.dev/) (ferramenta de build)
-- HTML5, CSS3 e JavaScript ES6+
-- [Node.js](https://nodejs.org/) (para gerenciamento do ambiente)
+Projeto de modernização do site da **Nova Imagem**, migrando de um CMS para uma aplicação **Vue 3** com **Vite**, componentes reutilizáveis e estilos em **SCSS** (com `scoped`).
 
 ---
 
-## 📂 Estrutura Inicial
-- **Páginas:** criadas apenas como esqueleto, sem conteúdo final.
-- **Componentes:**
-  - `Navbar.vue` → Navegação principal
-  - `Footer.vue` → Rodapé do site
-  - `WhatsappButton.vue` → Botão do WhatsApp (com comportamento diferente em desktop)
+## 🚀 Tecnologias
+- [Vue 3](https://vuejs.org/) + `<script setup>`
+- [Vite](https://vitejs.dev/)
+- HTML5, CSS3/SCSS e JavaScript ES6+
+- Node.js (ambiente)
 
 ---
 
-## 🛠️ Como rodar o projeto localmente
+## ✅ Últimas entregas
+- **Seção Hero** com título, texto, CTA duplo e imagem.
+- **Seção “Nossos Serviços”** com **grid responsivo** (1 col – mobile, 2 col – tablet, 4 col – desktop) e **cards com alturas iguais** (Grid `align-items: stretch` + `height: 100%` nos cards).
+- **Migração de CSS para SCSS** com nesting/BEM:
+  - `WhatsAppButton.vue`
+  - `Navbar.vue`
+  - `Footer.vue`
 
-1. Clone este repositório:
+> Observação: componentes utilizam `<style scoped lang="scss">` para melhor leitura e manutenção.
+
+---
+
+## 📂 Estrutura (resumo)
+```
+src/
+├─ assets/
+├─ components/
+│  ├─ Navbar.vue
+│  ├─ Footer.vue
+│  └─ WhatsAppButton.vue
+├─ pages/
+│  └─ Home.vue
+├─ App.vue
+├─ main.scss
+└─ main.js
+```
+
+---
+
+## 🧭 Padrões de código
+- **BEM** para nomenclatura (`.btn`, `.btn--primary`, `.card__footer`).
+- **SCSS** com **nesting** e **mobile-first**.
+- **Breakpoints (sugestão)** em `em`:  
+  - `48em` (≈768px) → tablet  
+  - `64em` (≈1024px) → desktop
+- **Grid utilitário**: usar `align-items: stretch` quando precisar de **cartões com mesma altura**.
+
+---
+
+## 🛠️ Rodando o projeto localmente
+1. Clone o repositório
    ```bash
-   git clone git@github.com:seu-usuario/nova-imagem.git
-   ```
-
-2. Acesse a pasta do projeto:
-   ```bash
+   git clone https://github.com/fde95/novaImagemVueJS.git
    cd nova-imagem
    ```
 
-3. Instale as dependências:
+2. Instale as dependências
    ```bash
    npm install
    ```
 
-4. Execute o servidor de desenvolvimento:
+3. Ambiente de desenvolvimento
    ```bash
    npm run dev
+   # abra http://localhost:5173
    ```
 
-5. Abra no navegador:
-   ```
-   http://localhost:5173
+4. Build de produção
+   ```bash
+   npm run build
+   npm run preview
    ```
 
 ---
 
-## 📌 Status do Projeto
-- Estrutura inicial criada ✅
-- Componentes básicos adicionados ✅
-- Conteúdo das páginas 🚧 (em andamento)
+## 📌 Status
+- Estrutura base ✔️
+- Navbar, Footer e WhatsApp Button ✔️ (estilos migrados para SCSS)
+- Seção Hero ✔️
+- Seção “Nossos Serviços” ✔️ (grid e alturas iguais)
+- Demais páginas/conteúdos 🚧
 
 ---
 
-## 📅 Próximos Passos
-- Implementar conteúdo real das páginas
-- Estilização com design definido
-- Integração com serviços externos (se necessário)
-- Otimização de performance e SEO
+## 🗺️ Roadmap próximo
+- Preencher conteúdos reais das páginas
+- Melhorias de acessibilidade (foco/ARIA) e SEO (metatags/OG)
+- Otimização de imagens (WebP/AVIF) e pré‑compressão (Brotli/Gzip)
+- Testes de responsividade cross‑device
 
 ---
 
-## 👨‍💻 Autor
-Projeto desenvolvido por **Felipe Espinoza**  
-🔗 [LinkedIn](https://www.linkedin.com/in/fde95/)  
+## 👤 Autor
+Desenvolvido por **Felipe Espinoza**  
+🔗 LinkedIn: https://www.linkedin.com/in/fde95/
