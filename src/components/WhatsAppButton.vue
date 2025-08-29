@@ -145,16 +145,8 @@ function toggle() {
 
         &__info {
           padding-left: 1rem;
-        }
-        &__image {
-          &__avatar {
-            float: left;
-            width: 60px;
-            height: 60px;
-            position: relative;
-          }
-        }
-        &__text {
+
+                  &__text {
           color: var(--text-primary);
           font-size: 12px;
 
@@ -162,6 +154,16 @@ function toggle() {
             font-size: 1rem;
             font-weight: 700;
             color: var(--text-secundary);
+          }
+        }
+
+        }
+        &__image {
+          &__avatar {
+            float: left;
+            width: 60px;
+            height: 60px;
+            position: relative;
           }
         }
       }

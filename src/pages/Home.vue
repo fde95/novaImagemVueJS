@@ -1,4 +1,37 @@
-<script setup></script>
+<script setup>
+document.addEventListener("DOMContentLoaded", () => {
+  // Trocar classes do ícone ao entrar e sair do card
+  const cards = document.querySelectorAll(".services__card");
+
+  cards.forEach((card) => {
+    const icons = card.querySelectorAll(".services__card__icon");
+    if (!icons.length) return;
+
+    const activate = () => {
+      icons.forEach((el) => {
+        el.classList.remove("services__card__icon");
+        el.classList.add("services__card__icon--is-active");
+      });
+    };
+
+    const deactivate = () => {
+      icons.forEach((el) => {
+        el.classList.remove("services__card__icon--is-active");
+        el.classList.add("services__card__icon");
+      });
+    };
+
+    // Pointer
+    card.addEventListener("pointerenter", activate);
+    card.addEventListener("pointerleave", deactivate);
+
+    // Acessibilidade
+    card.addEventListener("focusin", activate);
+    card.addEventListener("focusout", deactivate);
+  });
+});
+</script>
+
 <template>
   <!-- Hero -->
   <section class="hero">
@@ -24,7 +57,7 @@
             target="_blank"
             rel="noopener noreferrer"
           >
-            Solicitar Orçamento
+            <i class="bi bi-chat"></i> Solicitar Orçamento
           </a>
           <a
             href="#"
@@ -32,7 +65,7 @@
             target="_blank"
             rel="noopener noreferrer"
           >
-            (11) 9999-9999
+            <i class="bi bi-telephone"></i> (11) 9999-9999
           </a>
         </div>
       </div>
@@ -153,7 +186,51 @@
       </div>
     </div>
   </section>
+
+  <!-- Certificado ANVISA -->
+  <section class="certificate">
+    <div class="container--lg">
+      <div class="certificate__icon">
+        <i class="bi bi-shield-check"></i>
+      </div>
+      <h2 class="certificate__title section--title">
+        Certificados pela ANVISA
+      </h2>
+      <p class="certificate__text text">
+        Na Nova Imagem, entendemos a importância da certificação da ANVISA para
+        manutenção de equipamentos médicos. Nossa dedicação em obter e manter
+        essas certificações reflete nosso compromisso com a qualidade e
+        segurança dos serviços que oferecemos.
+      </p>
+
+      <!-- Grid Diferenciais -->
+      <div class="grid grid--3 container">
+        <div class="column certificate__card card">
+          <i class="bi bi-check2-circle certificate__card__icon"></i>
+          <h3 class="certificate__card__title">Conformidade Total</h3>
+          <p class="certificate__card__text">
+            Todos os processos seguem rigorosamente as normas da ANVISA
+          </p>
+        </div>
+        <div class="column certificate__card card">
+          <i class="bi bi-star certificate__card__icon"></i>
+          <h3 class="certificate__card__title">Qualidade Certificada</h3>
+          <p class="certificate__card__text">
+            Padrões internacionais de qualidade e segurança
+          </p>
+        </div>
+        <div class="column certificate__card card">
+          <i class="bi bi-shield certificate__card__icon"></i>
+          <h3 class="certificate__card__title">Segurança Garantida</h3>
+          <p class="certificate__card__text">
+            Proteção total para pacientes e profissionais de saúde
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
 </template>
+
 <style scoped lang="scss">
 .hero {
   background-image: var(--gradient-subtle);
@@ -220,13 +297,14 @@
   &__card {
     border: 1px solid var(--text-terciary);
     cursor: default;
-    transition: all .3s;
+    transition: all 0.3s;
     box-shadow: var(--shadow-soft);
     height: 100%;
 
-    &:hover{
+    &:hover {
       scale: 1.03;
     }
+
     &__icon {
       padding: 1rem;
       margin: 0 auto 1rem;
@@ -235,6 +313,17 @@
       max-width: 4rem;
       max-height: 4rem;
       align-items: center;
+
+      &--is-active {
+        background-color: var(--text-secundary);
+        color: var(--bg);
+        padding: 1rem;
+        margin: 0 auto 1rem;
+        border-radius: var(--radius);
+        max-width: 4rem;
+        max-height: 4rem;
+        align-items: center;
+      }
     }
 
     &__title {
@@ -246,6 +335,47 @@
     }
   }
 }
+
+.certificate {
+  background-image: var(--gradient-primary);
+  text-align: center;
+  color: var(--bg);
+
+  &__icon {
+    font-size: 2rem;
+    background-color: #ffffff1a;
+    padding: 1.15rem;
+    margin: 0 auto;
+    width: 5rem;
+    height: 5rem;
+    border-radius: 9999px;
+  }
+  &__title {
+    margin-top: var(--margin-md);
+  }
+  &__text {
+    margin: var(--margin-md) auto;
+    max-width: 53rem;
+    width: 100%;
+  }
+
+  &__card {
+    background-color: #ffffff1a;
+    margin-top: var(--margin-md);
+    cursor: default;
+    &__icon {
+      font-size: 2rem;
+    }
+    &__title {
+      font-size: 1rem;
+      margin: calc(var(--margin-md) - 12px) 0;
+    }
+    &__text {
+      font-size: 0.875rem;
+    }
+  }
+}
+
 @media (max-width: 27em) {
   a {
     display: block;

@@ -53,6 +53,7 @@ header {
   background-color: rgb(255, 255, 255);
   border-bottom: 1px solid #e7eaef;
   box-shadow: 1px 5px 10px rgba(0, 0, 0, 0.114);
+  z-index: 9999;
 
   .navbar {
     display: flex;

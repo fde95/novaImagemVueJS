@@ -77,11 +77,21 @@ body {
   // grid-auto-columns: max-content;
   gap: 1rem;
   justify-content: start;
-  align-items: center;
+  align-items: stretch;
 
   &--2 {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
+
+    &--3 {
+    grid-template-columns: 1fr;
+    max-width: 68.75rem;
+
+    @media (min-width: 48rem) {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+  }
+
 
   &--4 {
     grid-template-columns: 1fr;
@@ -103,7 +113,7 @@ body {
   padding: 1.5rem;
   border-radius: var(--radius);
   margin-bottom: var(--margin-md);
-  @media (min-width: 64px) {
-    margin-bottom: 0;
-  }
+  // @media (min-width: 64px) {
+  //   margin-bottom: 0;
+  // }
 }
