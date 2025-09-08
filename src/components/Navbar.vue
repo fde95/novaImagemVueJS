@@ -82,28 +82,28 @@ header {
       }
     }
   }
-}
-
-@media (max-width: 1000px) {
-  .navbar {
-    display: block;
-    text-align: center;
-
-    &__logo {
-      max-width: 10rem;
-      width: 100%;
-      padding-top: 1rem;
+  @media (max-width: 1000px) {
+    .navbar {
+      display: block;
+      text-align: center;
+  
+      &__logo {
+        max-width: 10rem;
+        width: 100%;
+        padding-top: 1rem;
+      }
+  
+      &__route {
+        margin-top: 1rem;
+        justify-content: center;
+      }
     }
-
-    &__route {
-      margin-top: 1rem;
-      justify-content: center;
+  
+    .btn {
+      display: none;
     }
   }
-
-  .btn {
-    display: none;
-  }
 }
+
 
 </style>

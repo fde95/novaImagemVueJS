@@ -54,6 +54,7 @@ body {
   cursor: pointer;
   font-size: var(--text-size);
   font-weight: 600;
+  display: inline-block;
 
   &--primary {
     background-image: var(--gradient-primary);
@@ -73,28 +74,30 @@ body {
 
 .grid {
   display: grid;
-  // grid-auto-flow: column;
-  // grid-auto-columns: max-content;
   gap: 1rem;
   justify-content: start;
-  align-items: stretch;
 
   &--2 {
     grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-auto-flow: column;
+    grid-auto-columns: max-content;
+    align-items: center;
+    margin-bottom: var(--margin-md);
   }
 
-    &--3 {
+  &--3 {
     grid-template-columns: 1fr;
     max-width: 68.75rem;
+    align-items: stretch;
 
     @media (min-width: 48rem) {
       grid-template-columns: repeat(3, minmax(0, 1fr));
     }
   }
 
-
   &--4 {
     grid-template-columns: 1fr;
+    align-items: stretch;
 
     @media (min-width: 48rem) and (max-width: 64rem) {
       grid-template-columns: repeat(2, minmax(0, 1fr));
